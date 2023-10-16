@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfTaskConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <TaskConfig>
+    <ID>0</ID>
+    <OrderID>1</OrderID>
+    <Name>Premieretache</Name>
+    <Methods>
+      <Method>
+        <Name> [VAL] en tain Rossi</Name>
+        <Type>Run a program</Type>
+        <Parameters>
+          <string>fullpathto/thing.py</string>
+          <string />
+          <string />
+          <string />
+          <string />
+        </Parameters>
+        <Status>Active</Status>
+      </Method>
+    </Methods>
+    <Triggers>
+      <Trigger>
+        <Status />
+        <Type>On time</Type>
+        <Parameters>
+          <string>Daily</string>
+          <string>00:00:00</string>
+          <string />
+          <string />
+          <string />
+          <string />
+          <string />
+          <string />
+          <string />
+          <string>16/10/2023</string>
+          <string>1</string>
+        </Parameters>
+        <NextRun>17/10/2023 00:00:00</NextRun>
+      </Trigger>
+    </Triggers>
+    <TriggerConditions>False</TriggerConditions>
+    <DeactivateOnError>False</DeactivateOnError>
+    <ExpiryDateTime />
+    <ActivationDateTime>16/10/2023 00:00:00</ActivationDateTime>
+    <Status>Inactive</Status>
+    <StatusMessage>-</StatusMessage>
+    <LastRun>-</LastRun>
+    <NextRun>-</NextRun>
+    <LastModified>Charles on 16/10/2023 23:03:25</LastModified>
+    <ExecutionType>True</ExecutionType>
+    <DelayActionsAfterTriggerFire>0</DelayActionsAfterTriggerFire>
+  </TaskConfig>
+</ArrayOfTaskConfig>
