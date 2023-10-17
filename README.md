@@ -12,6 +12,6 @@ Call the copyxml function with:
 For now, this program translates the task if it is a "execute program" task. It copies
 - task name
 - taks command file path
-- task exec time (time only, no data/repetition...)
+- task exec time (time only, no date/repetition...)
 
 Not actually guaranteed to work.
