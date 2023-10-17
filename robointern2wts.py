@@ -1,8 +1,7 @@
 import os
 import re
-data = ""
 
-def copyxml(template, config):
+def robo2wts(template, config):
 
     #split RoboIntern config file into multiple task files
     with open(config, 'r') as f:
@@ -12,12 +11,14 @@ def copyxml(template, config):
     foundnames=[]
     for i in range(0, len(found)):
         foundnames.append("configsplitfiles\\"+gettaskname(found[i]).replace("/","&")+'.xml')
-        
-    #Create file for every task
-    [open(foundnames[i], 'w').write(found[i]) for i in range(0, len(found))]
+
+    #Write every split file to configsplitfile folder
+    [open(foundnames[i], 'x').write(found[i]) for i in range(0, len(found))]
 
     #Create WTS file format for every split file
     [writeresult(foundnames[i], template) for i in range(0, len(found))]
+
+
 
 #Creates WTS file with RoboIntern file
 
@@ -48,8 +49,6 @@ def writeresult(configfile, templatefile):
         with open("results\\"+taskname+".xml", 'w', encoding='utf16') as file2:
             file2.write(data)
 
-
-
 #searches for taskexectime in template using beginnning and end delimiters (MIGHT NEED TO CHANGE THESE)
 def gettaskexectime(data):
     task_match = re.search(r'([0-2][0-3]:[0-5][0-9]:[0-5][0-9])', data)
@@ -71,4 +70,4 @@ def getcommandpath(data):
         taskcmd = task_match.group(1)
         return taskcmd
 
-copyxml("planifitemplate.xml", "robointernconfig.xml")
+robo2wts("planifitemplate.xml", "robointernconfig.xml")
