@@ -4,6 +4,14 @@ A simple program written in Python that allows you to convert an array of tasks 
 
 ## How it works
 
-In python, call the copyxml function with:
+Launch robointern2wts in python shell
+Call the copyxml function with:
 - the WTS file (single task) as a template for the first argument
 - the RoboIntern configfile (taskarray) as the second argument
+
+For now, this program translates the task if it is a "execute program" task. It copies
+- task name
+- taks command file path
+- task exec time
+
+Not actually guaranteed to work.
