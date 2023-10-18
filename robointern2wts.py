@@ -1,8 +1,31 @@
 import os
 import re
+import shutil
+
+#Clean folders before launching conversion
+for filename in os.listdir("configsplitfiles"):
+    file_path = os.path.join("configsplitfiles", filename)
+    try:
+        if os.path.isfile(file_path) or os.path.islink(file_path):
+            os.unlink(file_path)
+        elif os.path.isdir(file_path):
+            shutil.rmtree(file_path)
+    except Exception as e:
+        print('Failed to delete %s. Reason: %s' % (file_path, e))
+
+for filename in os.listdir("results"):
+    file_path = os.path.join("results", filename)
+    try:
+        if os.path.isfile(file_path) or os.path.islink(file_path):
+            os.unlink(file_path)
+        elif os.path.isdir(file_path):
+            shutil.rmtree(file_path)
+    except Exception as e:
+        print('Failed to delete %s. Reason: %s' % (file_path, e))
+
 
 def robo2wts(template, config):
-
+    
     #split RoboIntern config file into multiple task files
     with open(config, 'r') as f:
         splittext = f.read()
@@ -13,10 +36,35 @@ def robo2wts(template, config):
         foundnames.append("configsplitfiles\\"+gettaskname(found[i]).replace("/","&")+'.xml')
 
     #Write every split file to configsplitfile folder
-    [open(foundnames[i], 'x').write(found[i]) for i in range(0, len(found))]
+
+    for i in range(0, len(found)):
+        open(foundnames[i], 'x').write(found[i])
+
+    #Count files in configsplitfiles
+    countsplit = 0
+    for path in os.listdir("configsplitfiles"):
+        if os.path.isfile(os.path.join("configsplitfiles", path)):
+            countsplit += 1
+    print('Tasks found in RoboInternConfig File:', countsplit)
 
     #Create WTS file format for every split file
-    [writeresult(foundnames[i], template) for i in range(0, len(found))]
+    for i in range(0, len(found)):
+        writeresult(foundnames[i], template)
+
+    #Count files in results 
+    countconv = 0
+    for path in os.listdir("results"):
+        if os.path.isfile(os.path.join("configsplitfiles", path)):
+            countconv += 1
+    print('Tasks converted:', countconv)
+
+    #Checks if all files have been converted
+    if (countsplit==countconv):
+        print("All files have been converted")
+    #else:
+        #catch errors
+
+
 
 
 
