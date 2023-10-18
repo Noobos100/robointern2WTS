@@ -15,3 +15,5 @@ For now, this program translates the task if it is a "execute program" task. It 
 - task exec time (time only, no date/repetition...)
 
 Not actually guaranteed to work.
+
+WTS tasks are in C:\Windows\System32\Tasks
