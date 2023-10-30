@@ -1,6 +1,8 @@
 import os
 import re
 import shutil
+import msvcrt as m
+    
 
 #Clean folders before launching conversion
 for filename in os.listdir("configsplitfiles"):
@@ -60,15 +62,13 @@ def robo2wts(template, config):
 
     #Checks if all files have been converted
     if (countsplit==countconv):
-        print("All files have been converted")
+        print("All files have been converted.")
+        m.getch()
     #else:
         #catch errors
 
 
-
-
-
-#Creates WTS file with RoboIntern file
+#Functions that create the WTS file with a RoboIntern file
 
 #Gets values of RoboIntern config file and stores them in an array
 def writeresult(configfile, templatefile):
