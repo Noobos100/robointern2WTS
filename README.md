@@ -4,7 +4,7 @@ A simple program written in Python that allows you to convert an array of tasks 
 
 ## How it works
 
-Launch robointern2wts in python shell and call the robointer2wts function with:
+Launch robointern2wts in python shell and call the robointern2wts function with:
 - the WTS file (single task) as a template for the first argument
 - the RoboIntern configfile (taskarray) as the second argument
 
