@@ -84,7 +84,7 @@ def writeresult(configfile, templatefile):
             data = temp.read()
             temp.close()
             #Replaces content of extracted template data
-            data = data.replace("D:\\talend\\val\DATAWAREHOUSE\DWAR_ALL_MINOR_CHANGE\DWAR_ALL_MINOR_CHANGE\DWAR_ALL_MINOR_CHANGE_run.bat", "D:"+cmdpath+".bat")
+            data = data.replace("[PATH_IN_TEMPLATE]", "D:"+cmdpath+".bat")
             data = data.replace("19:15:00", taskexectime)
 
     #Writes result to result.xml
